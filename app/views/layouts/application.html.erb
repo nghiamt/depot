@@ -24,12 +24,24 @@
 				</div>
 				<a href="/">Home</a>
 				<br />
-				<a href="http://www..../faq">Questions</a>
+				<a href="http://google.com">Questions</a>
 				<br />
-				<a href="http://www..../news">News</a>
+				<a href="http://bbc.com">News</a>
 				<br />
-				<a href="http://www..../contact">Contact</a>
+				<a href="/contact">Contact</a>
 				<br />
+				<br />
+				<% if session[:user_id]==nil?%>
+				<%= button_to 'Login', login_path%>
+				<%end%>
+				<% if session[:user_id]%>
+				<br />
+				<%= link_to 'Users', users_path%> <br />
+				<%= link_to 'Orders', orders_path%> <br />
+				<%= link_to 'Products', products_path%> <br />
+				<br />
+				<%= button_to 'Logout', logout_path, :method => :delete%>
+				<%end%>
 			</div>
 			<div id="main">
 				<%= yield %><!-- <label id="code.depot.e.include"/> -->
