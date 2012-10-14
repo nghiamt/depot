@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to orders_url }
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 end
